@@ -1,0 +1,449 @@
+<html><style>
+    @charset "utf-8";
+
+    body {
+        background-color: #fff;
+        font-size: 62.5%;
+        margin: 0;
+        padding: 0;
+        min-width: 1400px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    body * { font-size: 90%; }
+
+    h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+
+    p {
+        margin-bottom: 1.1em;
+        margin-top: 0;
+    }
+
+    #main p.inlineBlock {
+        margin-bottom: 0;
+        display: inline-block;
+    }
+
+    a:link img, a:visited img { border: none; }
+
+    div.clearFloat {
+        clear: both;
+        font-size: 0;
+        height: 0;
+        line-height: 0px;
+    }
+
+    li.clearFloat { clear: both; }
+
+    ul.symbolList {
+        display: inline;
+        float: left;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .AbsWrap {
+        position: relative;
+        width: 100%;
+    }
+
+    .rowWrap { width: 100%; }
+
+    .TocParentDiv {
+        position: relative;
+        width: 90%;
+        padding-left: 5%;
+        float: left;
+    }
+
+    .ReportHeader {
+        position: relative;
+        width: 95%;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    .ReportHeaderLeft {
+        left: 0px;
+        position: absolute;
+        background-color: #0079cc;
+        height: 100%;
+        width: 10px;
+        display: inline-block;
+    }
+
+    .ParentDiv {
+        left: 0px;
+        position: relative;
+        top: 0px;
+        margin-bottom: 0;
+        background-color: #0079cc;
+        padding-top: 0px;
+    }
+
+    .ReportTitle {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 600%;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: absolute;
+        margin-bottom: 0;
+        width: 100%;
+        float: left;
+        padding-left: 5%;
+        padding-top: 50px;
+        display: inline-block;
+    }
+
+    .ReportStats {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        font-weight: bold;
+        text-align: left;
+        color: #000;
+        line-height: 130%;
+        position: relative;
+        margin-bottom: 0;
+        width: auto;
+        display: inline-block;
+        float: right;
+        padding-top: 55px;
+        padding-right: 10px;
+        padding-left: 25px;
+    }
+
+    .ReportStatsLabel {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        font-weight: bold;
+        text-align: left;
+        color: #999;
+        line-height: 130%;
+        position: relative;
+        margin-bottom: 0;
+        width: auto;
+        display: inline-block;
+        float: right;
+        padding-top: 55px;
+    }
+
+    .ExploratoryTestingLabel {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 360%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        position: absolute;
+        margin-bottom: 0;
+        width: 100%;
+        float: left;
+        padding-left: 5%;
+        padding-top: 120px;
+        display: inline-block;
+    }
+
+    .ReportGenerationText {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: absolute;
+        margin-bottom: 0;
+        float: left;
+        padding-left: 5.4%;
+        padding-top: 220px;
+        display: inline-block;
+    }
+
+    .TocTitleDiv {
+        position: relative;
+        top: 0px;
+        height: 60px;
+        width: 100%;
+        background: #eee;
+    }
+
+    .TocHeader {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 360%;
+        font-weight: bold;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding: 15px;
+        position: relative;
+    }
+
+    .line {
+        position: relative;
+        margin-bottom: 0;
+        border-bottom: 2px solid #ccc;
+        height: 2px;
+        overflow: hidden;
+    }
+
+    .TocWorkItemDate {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 135px;
+    }
+
+    .TocWorkItemId {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 50px;
+    }
+
+    .TocWorkItemTitle {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #333;
+        line-height: 120%;
+        padding-left: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        display: inline-block;
+        width: 82%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        float: left;
+    }
+
+    .ellipses {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .GreyedTileDiv {
+        position: relative;
+        margin-bottom: 0;
+        background-color: #eee;
+        width: 100%;
+        min-height: 65px;
+        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        overflow: auto;
+    }
+
+    .GreyedTileFooterDiv {
+        position: relative;
+        margin-bottom: 0;
+        background-color: #eee;
+        width: 100%;
+        padding-top: 0px;
+        height: 60px;
+    }
+
+    .WorkItemId {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        color: #0079cc;
+        line-height: 120%;
+        padding: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        position: relative;
+        margin-bottom: 0;
+        display: inline-block;
+    }
+
+    .WorkItemDate {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        text-align: left;
+        color: #999;
+        line-height: 100%;
+        padding-bottom: 1px;
+        padding-top: 1px;
+        position: relative;
+        margin-bottom: 0;
+        display: inline-block;
+    }
+
+    .WorkItemTitle {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        text-align: left;
+        color: #333;
+        line-height: 120%;
+        padding-bottom: 5px;
+        padding-top: 1px;
+        position: relative;
+        display: inline-block;
+        padding-left: 15px
+    }
+
+    .WorkItemDescription {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 200%;
+        text-align: left;
+        color: #333;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        padding-left: 15px;
+        position: relative;
+        margin-bottom: 0;
+        overflow: auto;
+    }
+
+    .ReportEndText {
+        font-family: 'Segoe UI Semibold', Arial, Helvetica, sans-serif;
+        font-size: 360%;
+        font-weight: bold;
+        text-align: left;
+        color: #0079cc;
+        position: relative;
+        margin-bottom: 0;
+        padding: 15px;
+    }
+
+    .ReportFooter {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    .EndLine {
+        bottom: 0px;
+        position: relative;
+        margin-bottom: 0;
+        border-bottom: 2px solid #ccc;
+        height: 1px;
+        overflow: hidden;
+    }
+
+    .ReportFooterInfo {
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        font-size: 240%;
+        text-align: left;
+        color: #999;
+        line-height: 120%;
+        padding-bottom: 2px;
+        padding-top: 1px;
+        position: relative;
+        bottom: 0px;
+        margin-bottom: 0;
+    }
+
+    .LeftFixedDiv {
+        position: fixed;
+        left: 0px;
+        bottom: 0%;
+        font-size: 450%;
+    }
+
+    .DownloadXTSessionReport {
+        font-size: 35%;
+        background-color: #0079cc;
+        color: #ffffff;
+        padding: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
+        z-index: 9999;
+        position: relative;
+    }
+
+    .LeftFixedDiv a:link { text-decoration: none }
+    .DownloadXTSessionReport a:link { text-decoration: none }
+    .inlineBlock a:link { text-decoration: none }
+    .TocWorkItemId a:link { text-decoration: none }
+</style><body>
+<div class="ReportHeader">
+    <div class="ReportHeaderLeft">
+    </div>
+    <div class="ReportTitle">
+        <p class="inlineBlock">
+            Session Report
+        </p>
+    </div>
+    <div class="ReportStats">
+        <p class="inlineBlock" id="ReportStats">5/22/2018 04:25 PM<br>5/22/2018 04:33 PM<br>0<br>Hora oficial do Brasil</p>
+    </div>
+    <div class="ReportStatsLabel">
+        <p class="inlineBlock">
+            Started On: <br>Exported On:<br>Bugs Filed:<br>Time Zone:
+        </p>
+    </div>
+    <div class="ExploratoryTestingLabel">
+        <p><img src="data:image/png;base64,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" style="vertical-align: sub"> Test &amp; Feedback
+        </p>
+    </div>
+    <div class="ReportGenerationText">
+        <p class="inlineBlock">
+            This report was generated using <a href="http://aka.ms/xtmarketplace">Test &amp; Feedback extension</a> for <a href="https://visualstudio.com">Visual Studio Team Services</a> / Team Foundation Server in standalone mode (with limited functionality). Connect to Team Services for the full featured version, learn more - <a href="http://aka.ms/xtlearn">http://aka.ms/xtlearn</a>.
+        </p>
+    </div>
+</div>
+<div class="TocParentDiv">
+    <div>
+        <div class="TocTitleDiv">
+
+            <div class="TocHeader">
+                Summary of bugs filed
+            </div>
+
+        </div>
+        <div id="TableOfContent"></div>
+    </div>
+</div>
+<div id="WorkItems" class="TocParentDiv"><br><br></div>
+<div id="SessionAttachments" class="TocParentDiv"><br><br><div class="TocTitleDiv"><div class="TocHeader"><p class="inlineBlock">Session attachments</p></div></div><div class="line"> </div><br><div class="WorkItemId"><p class="inlineBlock">Note-1</p></div><div class="WorkItemDate"><p class="inlineBlock">5/22/2018 04:25 PM</p></div><br><div class="WorkItemDescription">Teste de interface realizado no site da empresa Senac RS</div><br><br><br><div class="WorkItemId"><p class="inlineBlock">Note-2</p></div><div class="WorkItemDate"><p class="inlineBlock">5/22/2018 04:25 PM</p></div><br><div class="WorkItemDescription">Sera realizado um teste na pagina "fale conosco" da instituicao. https://www.senacrs.com.br/contato_faleconosco.asp</div><br><br><br><div class="WorkItemId"><p class="inlineBlock">Note-3</p></div><div class="WorkItemDate"><p class="inlineBlock">5/22/2018 04:27 PM</p></div><br><div class="WorkItemDescription">O quarto teste que sera realizado na pagina sera no formulario. Sera verificado se o campo do formulario "Estado" esta Apresentando uma tipo de bug</div><br><br><br><div class="WorkItemId"><p class="inlineBlock">Screenshot-1.png</p></div><div class="WorkItemDate"><p class="inlineBlock">5/22/2018 04:27 PM</p></div><br><div class="WorkItemDescription"><img src="data:image/png;base64,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"></div><br><br><br><div class="WorkItemId"><p class="inlineBlock">Note-4</p></div><div class="WorkItemDate"><p class="inlineBlock">5/22/2018 04:28 PM</p></div><br><div class="WorkItemDescription">Foi verificado que o campo aceita e valida a informacao "Selecione" como informacao valida de estado</div><br><br><br><div class="WorkItemId"><p class="inlineBlock">Note-5</p></div><div class="WorkItemDate"><p class="inlineBlock">5/22/2018 04:33 PM</p></div><br><div class="WorkItemDescription">Foi constatado ao final do teste que o campo "Estado" apresenta falhas em validar informacoes erradas</div><br><br></div>
+<div class="TocParentDiv">
+    <div class="GreyedTileFooterDiv">
+        <div class="ReportEndText">
+            <p class="inlineBlock">
+                End of report.
+            </p>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="ReportFooterInfo">
+        <p class="inlineBlock">
+            Want to track bugs in a more seamless manner? Connect to <a href="https://visualstudio.com">Visual Studio Team Services</a> for free.
+        </p>
+    </div>
+</div>
+
+</body></html>

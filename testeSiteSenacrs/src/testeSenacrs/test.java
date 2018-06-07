@@ -1,6 +1,7 @@
 package testeSenacrs;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -35,8 +36,9 @@ public class test {
 	public void teste() {
 
 		WebElement j = driver.findElement(By.id("nome"));
-		j.sendKeys("156987452");
-
+		j.sendKeys("Paulo");
+		
+		
 		WebElement datanasc = driver.findElement(By.id("datanasc"));
 		datanasc.sendKeys("09/10/1991");
 
@@ -54,19 +56,17 @@ public class test {
 		cidade.sendKeys(Keys.ENTER);
 		
 		
+		
 		/*Cria-se um objeto do tipo Select*/ 			
 		 Select dropdown = new Select(driver.findElement(By.id("cidade")));
 		/*Seleciona-se por texto*/ 			
 				 dropdown.selectByVisibleText("PORTO ALEGRE");
-
-		
+				 
 		//verifica se selecionou o bairro
 		WebElement bairro = driver.findElement(By.id("bairro"));		
-		//assertEquals(true, bairro.isEnabled());
+		assertEquals(true, bairro.isEnabled());
 
 		
-		
-
 		WebElement email = driver.findElement(By.id("email"));
 		email.sendKeys("Repita seu e-mail aquiasasasasas@gmail.com");
 
@@ -79,17 +79,8 @@ public class test {
 		WebElement telefone = driver.findElement(By.id("telefone"));
 		telefone.sendKeys("54645645656");
 
-		//WebElement feminino = driver.findElement(By.xpath("//*[@id=\"formfale\"]/div[1]/div[2]/div[1]"));
-		//feminino.click();/html/body/div/div[9]/div[1]/div/div/div[2]/div/form/div[1]/div[2]/div[1]
-				
-				WebElement feminino = driver.findElement(By.xpath("/html/body/div/div[9]/div[1]/div/div/div[2]/div/form/div[1]/div[2]/div[1]"));
+		WebElement feminino = driver.findElement(By.xpath("/html/body/div/div[9]/div[1]/div/div/div[2]/div/form/div[1]/div[2]/div[1]"));
 		feminino.click();
-
-		//WebElement confirmarsenha = driver.findElement(By.xpath("//*[@id=\"formfale\"]/div[1]/div[2]/div[2]"));
-		//confirmarsenha.sendKeys("54645645656");
-
-		//WebElement assunto = driver.findElement(By.id("assunto"));
-		//assunto.click();
 
 		WebElement mensagem = driver.findElement(By.id("mensagem"));
 		mensagem.sendKeys("sasasasasasasasasasa");
@@ -102,10 +93,56 @@ public class test {
 		codigo.sendKeys("54645645656");
 		
 		
-		assertEquals(true, bairro.isEnabled());
-		WebElement enviar = driver.findElement(By.xpath("/html/body/div/div[9]/div[1]/div/div/div[2]/div/form/input[5]"));
-		enviar.click();
+		//assertEquals(true, bairro.isEnabled());
+		//WebElement enviar = driver.findElement(By.xpath("/html/body/div/div[9]/div[1]/div/div/div[2]/div/form/input[5]"));
+       //enviar.click();
+       
+       
+		driver.quit();
+       
 
+		
+		
+	}
+	
+	@Test
+	public void teste2() {
+		
+		//verificar se o campo nome tem o mesmo dado do teste
+		boolean achouNome = driver.getPageSource().contains("Paulo");
+		assertTrue(achouNome);
+		
+	}
+	
+	/*@Test
+	public void teste4() {
+		
+		
+		
+	}*/
+	
+	//@Test
+	//public void teste2() {
+		
+		/*Cria-se um objeto do tipo Select*/ 			
+		// Select dropdown = new Select(driver.findElement(By.id("cidade")));
+		/*Seleciona-se por texto*/ 			
+				 //dropdown.selectByVisibleText("BOA VISTA");
+
+		
+		//verifica se selecionou o bairro
+		//WebElement bairro = driver.findElement(By.id("bairro"));		
+		//assertEquals(true, bairro.isEnabled());
+		
+		
+	//}
+	
+	@Test
+	public void teste3() {
+		
+		//buscar se o campo foi limpo
+        WebElement bairroD = driver.findElement(By.id("bairro"));		
+		assertEquals("", bairroD.getAttribute("value"));
 		
 		
 	}
@@ -119,11 +156,14 @@ public class test {
 	//buscar se os campos foram limpo
 	//WebElement enviarD = driver.findElement(By.id("email"));
 	
-	//assertEquals("", enviarD.getAttribute("value"));
+	//assertEquals(" ", enviarD.getAttribute("value"));
 	
 	
 	/*@Test
 	public void test2() {
+		
+		
+	           
 		
 		String titulo = driver.getTitle();
 		
